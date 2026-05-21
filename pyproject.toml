@@ -20,6 +20,10 @@ Repository = "https://github.com/ostermeyer/jmd-commons"
 where = ["src"]
 include = ["jmd_commons*"]
 
+[tool.setuptools.package-data]
+jmd_commons = ["py.typed"]
+
+
 [tool.ruff]
 line-length = 80
 target-version = "py310"
