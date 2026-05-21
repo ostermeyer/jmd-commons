@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jmd-commons"
+version = "0.1.0"
+description = "Shared utilities for the JMD ecosystem — paths, security, credentials (Python-only)."
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "Andreas Ostermeyer", email = "andreas@ostermeyer.de" }]
+requires-python = ">=3.10"
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/ostermeyer/jmd-commons"
+Repository = "https://github.com/ostermeyer/jmd-commons"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["jmd_commons*"]
+
+[tool.ruff]
+line-length = 80
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "N", "D", "B", "UP"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["D"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.mypy]
+strict = true
+
+[dependency-groups]
+dev = ["mypy>=1.20.1", "pytest>=9.0.2", "ruff>=0.15.11"]
